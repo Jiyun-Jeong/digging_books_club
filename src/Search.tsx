@@ -21,6 +21,7 @@ function Search() {
                     }}
                     placeholder="책 검색하기" 
                     aria-label="책 이름 입력" />
+                    <button type={"button"} className="del_btn" aria-label="검색어 삭제"></button>
                     <button type={"button"} className="search_btn" aria-label="검색" 
                     onClick={
                         async () => {
