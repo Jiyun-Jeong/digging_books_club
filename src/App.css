@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+
+/* Defalut */
+html, header, body, footer, nav, address, section, h1, h2, h3, h4, h5, h6, div, p, div, a, ul, ol, dl, li, dt, dd, button, table, caption, input, textarea{padding:0; margin:0; box-sizing:border-box; font-size:18px;}
+
+body{background-color:#f6f6f6; display:flex; justify-content:center; align-items:center; font-family:'Noto Sans KR'; min-height:100vh;}
+li{list-style:none;}
+img{vertical-align:top; border:none;}
+input{border:none;}
+button{border:none; cursor:pointer; background:transparent;}
+a{text-decoration:none;}
+
+caption, .hidden{width:1px; height:1px; margin:-1px; overflow:hidden; position:absolute; clip:rect(0, 0, 0, 0); clip-path:inset(50%);}
+
+:root{
+  --border-color:#505050;
+  --border-radius:8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Common */
+.hidden{width:1px; height:1px; position:absolute; display:block; border:0; overflow:hidden; clip:rect(1px, 1px, 1px, 1px); clip-path:inset(50%);}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* SearchBar */
+.SearchBar{position:relative;}
+.SearchBar .input_text{width:100%; background-color:#ccc; border-radius:var(--border-radius); height:50px; padding:14px 16px; font-size:18px;}
+.SearchBar .search_btn{position:absolute; top:50%; right:11px; width:28px; height:28px; background:url(../public/img/search_btn.png) no-repeat; background-position:50% 50%; transform:translateY(-50%);}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* Style */
+#root{height:100vh;}
+.App{font-family:'Noto Sans KR'; margin:12px 14px; padding:18px 13px; height:calc(100vh - 24px); border:1px solid var(--border-color); border-radius:var(--border-radius);}
+section .no_list{position:relative; display:flex; align-items:center; justify-content:center; flex-flow:column wrap; padding-top:342px;}
+section .no_list::before{content:""; position:absolute; width:150px; height:150px; top:132px; left:50%; transform:translate(-50%); background:url(../public/img/broken\ heart.svg) no-repeat;}
 
-.App-link {
-  color: #61dafb;
-}
+@media (min-width:650px) {
+  .App{width:640px;}
+};
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width:650px) {
+  .App{width:90vw;}
 }
