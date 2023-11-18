@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import './App.css';
 import axios from 'axios';
 
-function App() {
-  const [searchKeyword, setSearchKeyword] = useState<string>("");
-  const [bookList, setBookList] = useState<any[]>([]);
+function Search() {
+    const [searchKeyword, setSearchKeyword] = useState<string>("");
+    const [bookList, setBookList] = useState<any[]>([]);
 
-  return (
-    <div className="App">
-      <div id="wrap">
-      <div id="head">
+    return (
+        <>
+            <div id="head">
                 <h1 className="hidden">디깅 북 클럽</h1>
                 <div className="SearchBar">
                     <input 
@@ -54,9 +53,8 @@ function App() {
                     <p>책을 검색해서 북카드를 생성해 보세요.</p>
                 </div>
             </section>
-      </div>
-    </div>
-  );
+        </>
+    );
 }
 
-export default App;
+export default Search;

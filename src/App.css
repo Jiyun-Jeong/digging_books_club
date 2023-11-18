@@ -26,10 +26,15 @@ caption, .hidden{width:1px; height:1px; margin:-1px; overflow:hidden; position:a
 .SearchBar .search_btn{position:absolute; top:50%; right:11px; width:28px; height:28px; background:url(../public/img/search_btn.png) no-repeat; background-position:50% 50%; transform:translateY(-50%);}
 
 /* Style */
-#root{height:100vh;}
-.App{font-family:'Noto Sans KR'; margin:12px 14px; padding:18px 13px; height:calc(100vh - 24px); border:1px solid var(--border-color); border-radius:var(--border-radius);}
-section .no_list{position:relative; display:flex; align-items:center; justify-content:center; flex-flow:column wrap; padding-top:342px;}
-section .no_list::before{content:""; position:absolute; width:150px; height:150px; top:132px; left:50%; transform:translate(-50%); background:url(../public/img/broken\ heart.svg) no-repeat;}
+#root{height:100vh; overflow:hidden;}
+.App{font-family:'Noto Sans KR'; margin:12px 14px; padding:18px 13px; height:calc(100vh - 24px); border:1px solid var(--border-color); border-radius:var(--border-radius); overflow-y:scroll;}
+section.list{margin-top:20px;}
+section.list > ul > li + li{margin-top:12px;}
+section.list > ul > li > a{display:flex; gap:15px; padding:12px 15px; border:1px solid var(--border-color); border-radius:var(--border-radius); cursor:pointer;}
+section.list > ul > li > a div.text p{font-size:14px; line-height:1.2; color:#000; width:100%; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+section.list > ul > li > a div.text span{font-size:12px; line-height:1.2; color:#000;}
+section.list .no_list{position:relative; display:flex; align-items:center; justify-content:center; flex-flow:column wrap; padding-top:342px;}
+section.list .no_list::before{content:""; position:absolute; width:150px; height:150px; top:132px; left:50%; transform:translate(-50%); background:url(../public/img/broken\ heart.svg) no-repeat;}
 
 @media (min-width:650px) {
   .App{width:640px;}
