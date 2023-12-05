@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import DelButton from "./components/DelButton";
 import './App.css';
 import axios from 'axios';
 
@@ -21,7 +22,7 @@ function Search() {
                     }}
                     placeholder="책 검색하기" 
                     aria-label="책 이름 입력" />
-                    <button type={"button"} className="del_btn" aria-label="검색어 삭제"></button>
+                    <DelButton />
                     <button type={"button"} className="search_btn" aria-label="검색" 
                     onClick={
                         async () => {
@@ -38,13 +39,19 @@ function Search() {
                     {
                     bookList.map((book) => {
                         return <li>
-                        <a href={book.link}>
-                            <img src={book.cover} alt="" />
-                            <div className="text">
-                            <p>{book.title}</p>
-                            <span>{book.author}</span>
+                            <div>
+                                {/* 책의 외부 링크가 아닌, 상세페이지 링크로 변 */}
+                                <img src={book.cover} alt="" />
+                                <div>
+                                    <a href="#" className="text">
+                                        <p>{book.title}</p>
+                                        <span>{book.author}</span>
+                                    </a>
+                                    <button type="button" className="save" onClick={() => alert('등록되었습니다!')}>
+                                        등록
+                                    </button>
+                                </div>
                             </div>
-                        </a>
                         </li>;
                     })
                     }

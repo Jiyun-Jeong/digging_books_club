@@ -24,17 +24,24 @@ caption, .hidden{width:1px; height:1px; margin:-1px; overflow:hidden; position:a
 .SearchBar{position:relative;}
 .SearchBar .input_text{width:100%; background-color:#ccc; border-radius:var(--border-radius); height:50px; padding:14px 16px; font-size:18px;}
 .SearchBar .search_btn{position:absolute; top:50%; right:11px; width:28px; height:28px; background:url(../public/img/search_btn.png) no-repeat; background-position:50% 50%; transform:translateY(-50%);}
+/* .del_btn{display:block; position:relative; width:28px; height:28px;}
+.del_btn::before{content:""; position:absolute; width:16px; height:2px; background-color: #666; transform:rotate(45deg) translateX(-50%);}
+.del_btn::after{content:""; position:absolute; width:16px; height:2px; background-color: #666; transform:rotate(-45deg) translateX(50%);} */
+
 
 /* Style */
 #root{height:100vh; overflow:hidden;}
 .App{font-family:'Noto Sans KR'; margin:12px 14px; padding:18px 13px; height:calc(100vh - 24px); border:1px solid var(--border-color); border-radius:var(--border-radius); overflow-y:scroll;}
 section.list{margin-top:20px;}
 section.list > ul > li + li{margin-top:12px;}
-section.list > ul > li > a{display:flex; gap:15px; padding:12px 15px; border:1px solid var(--border-color); border-radius:var(--border-radius); cursor:pointer;}
-section.list > ul > li > a div.text p{font-size:14px; line-height:1.2; color:#000; width:100%; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
-section.list > ul > li > a div.text span{font-size:12px; line-height:1.2; color:#000;}
-section.list .no_list{position:relative; display:flex; align-items:center; justify-content:center; flex-flow:column wrap; padding-top:342px;}
-section.list .no_list::before{content:""; position:absolute; width:150px; height:150px; top:132px; left:50%; transform:translate(-50%); background:url(../public/img/broken\ heart.svg) no-repeat;}
+section.list > ul > li > div{display:flex; gap:15px; min-height:110px; padding:12px 15px; border:1px solid var(--border-color); border-radius:var(--border-radius); cursor:pointer;}
+section.list > ul > li > div div a.text{width:calc(100% - 100px);}
+section.list > ul > li > div div a.text p{width:100%; font-size:14px; line-height:1.2; color:#444; font-weight:700; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+section.list > ul > li > div div a.text span{display:block; margin-top:12px; font-size:12px; line-height:1.2; color:#666;}
+section.list > ul > li > div div{position:relative;}
+section.list > ul > li > div div button.save{position:absolute; bottom:0; right:0; padding:4px 6px; font-size:12px; font-weight:700; background-color:#ccc; border-radius:4px;}
+section.list .no_list{position:relative; display:flex; align-items:center; justify-content:center; flex-flow:column wrap; padding-top:300px;}
+section.list .no_list::before{content:""; position:absolute; width:150px; height:150px; top:96px; left:50%; transform:translate(-50%); background:url(../public/img/broken\ heart.svg) no-repeat;}
 
 @media (min-width:650px) {
   .App{width:640px;}
