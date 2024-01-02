@@ -2,10 +2,25 @@ import React, {useState} from 'react';
 import DelButton from "./components/DelButton";
 import './App.css';
 import axios from 'axios';
+import { useRouter } from "next/router";
 
 function Search() {
     const [searchKeyword, setSearchKeyword] = useState<string>("");
     const [bookList, setBookList] = useState<any[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    function ActiveLink({children, href}) {
+        const router = useRouter();
+        const movePageClick = (e) => {
+            e.preventDefault()
+            router.push(href)
+        }
+
+        return (
+            <a href={href} onClick={movePageClick}>
+                {children}
+            </a>
+        )
+    }
 
     return (
         <>
@@ -23,8 +38,9 @@ function Search() {
                     placeholder="책 검색하기" 
                     aria-label="책 이름 입력" />
                     <DelButton />
-                    <button type={"button"} className="search_btn" aria-label="검색" 
+                    <button type="button" className="search_btn" aria-label="검색" 
                     onClick={
+                        //movePageClick
                         async () => {
                         const list = await axios.get(`/ttb/api/ItemSearch.aspx?ttbkey=ttbrijamong08302251002&Query=${searchKeyword}&SearchTarget=Book&Version=20131101&output=js&maxResults=10`);
                         setBookList(list.data.item)}
@@ -61,6 +77,7 @@ function Search() {
                     <p>책을 검색해서 북카드를 생성해 보세요.</p>
                 </div>
             </section>
+          
         </>
     );
 }
