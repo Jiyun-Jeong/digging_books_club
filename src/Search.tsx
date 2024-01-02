@@ -2,25 +2,10 @@ import React, {useState} from 'react';
 import DelButton from "./components/DelButton";
 import './App.css';
 import axios from 'axios';
-import { useRouter } from "next/router";
 
 function Search() {
     const [searchKeyword, setSearchKeyword] = useState<string>("");
     const [bookList, setBookList] = useState<any[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-    function ActiveLink({children, href}) {
-        const router = useRouter();
-        const movePageClick = (e) => {
-            e.preventDefault()
-            router.push(href)
-        }
-
-        return (
-            <a href={href} onClick={movePageClick}>
-                {children}
-            </a>
-        )
-    }
 
     return (
         <>
