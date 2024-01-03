@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import DelButton from "./components/DelButton";
 import './App.css';
 import axios from 'axios';
+// https://goddaehee.tistory.com/305 router 사용하기
 
 function Search() {
     const [searchKeyword, setSearchKeyword] = useState<string>("");
